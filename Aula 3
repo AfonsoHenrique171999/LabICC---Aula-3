@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+    int SE, SD, ME, MD; //SD = Obstáculo Direito; SE = Obstáculo Esquerdo; ME = Motor Esquerdo; MD = Motor Direito.
+
+    // Sensores
+
+    printf("ha obstaculos no lado esquerdo(SE)? se sim, coloque 1, senao, coloque 0: ");
+    scanf("%d", &SE);
+    printf("ha obstaculos no lado direito(SD)? se sim, coloque 1, senao, coloque 0: ");
+    scanf("%d", &SD);
+
+    // IA
+
+    if(SE == 0 && SD == 0){
+        ME = 1;
+        MD = 1;
+        printf("ME=%d e MD=%d \n", ME, MD);
+    }
+    else if(SE == 1 && SD == 0){
+        ME = 1;
+        MD = 0;
+        printf("ME=%d e MD=%d \n", ME, MD);
+    }
+    else if(SE == 0 && SD == 1){
+        ME = 0;
+        MD = 1;
+        printf("ME=%d e MD=%d \n", ME, MD);
+    }
+    else if(SE == 1 && SD == 1){
+        ME = 1;
+        MD = 0;
+        printf("ME=%d e MD=%d \n", ME, MD);
+    }
+
+    // Drivemotors
+
+    if(ME == 1 && MD == 0){
+        printf("Ligue o motor esquerdo \n");
+    }
+    if(ME == 0 && MD == 1){
+        printf("Ligue o motor direito \n");
+    }
+    if(ME == 1 && MD == 1){
+        printf("Ligue o motor esquerdo e o direito");
+    }
+   return 0;
+}

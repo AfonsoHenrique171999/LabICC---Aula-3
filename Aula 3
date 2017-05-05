@@ -43,7 +43,7 @@ int main(){
         printf("Ligue o motor direito \n");
     }
     if(ME == 1 && MD == 1){
-        printf("Ligue o motor esquerdo e o direito");
+        printf("Ligue o motor esquerdo e o direito \n");
     }
    return 0;
 }

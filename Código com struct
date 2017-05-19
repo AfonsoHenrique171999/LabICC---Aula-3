@@ -1,0 +1,85 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct sensores{
+    int SE;
+    int SD;
+}sensor;
+
+typedef struct motores{
+    int ME;
+    int MD;
+}motor;
+
+sensor Leitura(void){
+    int lE, lD, a, b;
+    printf("distancia do sensor lE em cm: ");
+    scanf("%d", &lE);
+    printf("distancia do sensor lD em cm: ");
+    scanf("%d", &lD);
+
+    if(lE <= 100){
+        a = 1;
+    }
+    else{
+        a = 0;
+    }
+    if (lD <= 100){
+        b = 1;
+    }
+    else{
+        b = 0;
+    }
+
+    sensor Leitura_do_sensor = {a,b};
+    return Leitura_do_sensor;
+}
+
+    motor ia(sensor ia_sensor){
+    motor ia_motor;
+
+    if(ia_sensor.SE == 1 && ia_sensor.SD == 1){
+        ia_motor.ME = 1;
+        ia_motor.MD = 0;
+    }
+
+    else if(ia_sensor.SE == 0 && ia_sensor.SD == 1){
+        ia_motor.ME = 1;
+        ia_motor.MD = 0;
+    }
+
+    else if(ia_sensor.SE == 1 && ia_sensor.SD == 0){
+        ia_motor.ME = 0;
+        ia_motor.MD = 1;
+    }
+
+    else if(ia_sensor.SE == 0 && ia_sensor.SD == 0){
+        ia_motor.ME = 1;
+        ia_motor.MD = 1;
+    }
+
+    return ia_motor;
+}
+
+
+void driveMotors(motor drive_motor){
+    printf("\rMotor E: %d\nMotor D: %d", drive_motor.ME, drive_motor.MD);
+}
+
+int main(void){
+    while(1){
+    sensor main_sensor;
+    motor main_motor;
+
+    main_sensor = Leitura();
+    main_motor = ia(main_sensor);
+
+    printf("\n");
+    driveMotors(main_motor);
+
+    getch();
+    system("cls");
+    }
+
+    return 0;
+}

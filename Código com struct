@@ -13,9 +13,9 @@ typedef struct motores{
 
 sensor Leitura(void){
     int lE, lD, a, b;
-    printf("distancia do sensor lE em cm: ");
+    printf("distancia do sensor Esquerdo em cm: ");
     scanf("%d", &lE);
-    printf("distancia do sensor lD em cm: ");
+    printf("distancia do sensor Direito em cm: ");
     scanf("%d", &lD);
 
     if(lE <= 100){
@@ -63,7 +63,7 @@ sensor Leitura(void){
 
 
 void driveMotors(motor drive_motor){
-    printf("\rMotor E: %d\nMotor D: %d", drive_motor.ME, drive_motor.MD);
+    printf("\rMotor Esquerdo: %d\nMotor Direito: %d", drive_motor.ME, drive_motor.MD);
 }
 
 int main(void){
